@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 require('dotenv').config();
@@ -21,3 +22,4 @@ app.use('/api/clientes', clientesR);
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
