@@ -1,4 +1,4 @@
-const { Autos } = require('../models'); // 👈 ESTO ES CLAVE
+const { Autos } = require('../models');
 
 exports.autosDisponibles = async (req, res) => {
     try {
@@ -9,10 +9,12 @@ exports.autosDisponibles = async (req, res) => {
         res.json(autos);
 
     } catch (error) {
-        console.log("ERROR REAL:", error); // 👈 para ver en logs
+        console.log("🔥 ERROR REAL:", error); // IMPORTANTE
+
         res.status(500).json({
             mensaje: "error",
-            error: error.message
+            error: error.message,
+            detalle: error
         });
     }
 };
