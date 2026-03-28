@@ -34,3 +34,10 @@ app.listen(PORT, () => {
 });
 console.log("DATABASE_URL:", process.env.DATABASE_URL);
 
+app.use((err, req, res, next) => {
+  console.error("ERROR GLOBAL:", err);
+  res.status(500).json({
+    mensaje: err.message,
+    errorCompleto: err
+  });
+});

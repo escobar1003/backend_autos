@@ -22,3 +22,7 @@ db.sequelize = sequelize;
 db.Autos = require('./autos')(sequelize, Sequelize.DataTypes);
 
 module.exports = db;
+
+db.sequelize.sync()
+  .then(() => console.log("Tablas creadas"))
+  .catch(err => console.log(err));
