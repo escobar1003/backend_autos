@@ -1,6 +1,7 @@
 const { Autos } = require('../models');
 
 exports.autosDisponibles = async (req, res) => {
+    console.log("ENTRANDO A AUTOS DISPONIBLES");
     try {
         const autos = await Autos.findAll({ 
             where: { disponibilidad: 1 } 
