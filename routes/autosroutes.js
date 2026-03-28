@@ -5,4 +5,7 @@ const autosController = require('../controller/autoscontroller');
 
 router.get('/', autosController.autosDisponibles);
 
+// ❌ COMENTA o ELIMINA el POST
+// router.post('/', autosController.registrarAuto);
+
 module.exports = router;
