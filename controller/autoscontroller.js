@@ -1,16 +1,17 @@
 const { Autos } = require('../models');
 
 exports.autosDisponibles = async (req, res) => {
-    console.log("ENTRANDO A AUTOS DISPONIBLES");
     try {
         const autos = await Autos.findAll({ 
             where: { disponibilidad: 1 } 
         });
+
         res.json(autos);
+
     } catch (error) {
-        console.log("ERROR REAL:", error);
-        res.json({ mensaje: error.message });
-        }
+        console.log("ERROR REAL:", error); // 👈 IMPORTANTE
+        res.json({ mensaje: error.message }); // 👈 CAMBIA ESTO
+    }
 };
 
 exports.registrarAuto = async (req, res) => {
