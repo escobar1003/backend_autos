@@ -9,7 +9,7 @@ exports.autosDisponibles = async (req, res) => {
     } catch (error) {
         console.log("ERROR REAL:", error);
         res.json({ mensaje: error.message });
-}
+        }
 };
 
 exports.registrarAuto = async (req, res) => {
