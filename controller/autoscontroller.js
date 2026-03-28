@@ -1,4 +1,6 @@
-exports.autosDisponibles = async (req, res, next) => {
+const { Autos } = require('../models'); // 👈 ESTO ES CLAVE
+
+exports.autosDisponibles = async (req, res) => {
     try {
         const autos = await Autos.findAll({
             where: { disponibilidad: 1 }
@@ -7,6 +9,10 @@ exports.autosDisponibles = async (req, res, next) => {
         res.json(autos);
 
     } catch (error) {
-        next(error); // 👈 IMPORTANTE
+        console.log("ERROR REAL:", error); // 👈 para ver en logs
+        res.status(500).json({
+            mensaje: "error",
+            error: error.message
+        });
     }
 };
