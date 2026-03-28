@@ -1,3 +1,7 @@
+'use strict';
+
+const Sequelize = require('sequelize');
+
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   protocol: 'postgres',
@@ -8,3 +12,13 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     },
   },
 });
+
+const db = {};
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+// IMPORTAR MODELOS
+db.Autos = require('./autos')(sequelize, Sequelize.DataTypes);
+
+module.exports = db;
