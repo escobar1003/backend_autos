@@ -29,8 +29,8 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 console.log("DATABASE_URL:", process.env.DATABASE_URL);
 
