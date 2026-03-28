@@ -18,7 +18,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// IMPORTAR MODELOS
+// IMPORTA TU MODELO
 db.Autos = require('./autos')(sequelize, Sequelize.DataTypes);
 
 module.exports = db;
