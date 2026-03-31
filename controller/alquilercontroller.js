@@ -4,7 +4,7 @@ exports.realizarAlquiler = async (req, res) => {
     const { clienteId, autoId, fechaInicio, fechaFin } = req.body;
     try {
         const auto = await Autos.findByPk(autoId);
-        if (auto && auto.disponibilidad === 1) {
+        if (auto && auto.disponibilidad === true) {
             const cliente = await Cliente.findByPk(clienteId);
             if (!cliente) {
                 return res.json({ mensaje: "El cliente no existe" });
@@ -17,7 +17,7 @@ exports.realizarAlquiler = async (req, res) => {
                 fechaFin
             });
 
-            await auto.update({ disponibilidad: 0 });
+            await auto.update({ disponibilidad: false });
 
             res.json(alquiler);
         } else {
