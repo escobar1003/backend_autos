@@ -6,6 +6,7 @@ const sequelize = require("./config/db");
 const autosRoutes = require("./routes/autosRoutes");
 
 const app = express();
+app.use("/api/autos", autosRoutes);
 
 app.use(cors());
 app.use(express.json());
