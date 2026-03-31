@@ -1,11 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const autosController = require("../controllers/autosController");
 
-const autosController = require('../controller/autoscontroller');
-
-router.get('/', autosController.autosDisponibles);
-
-// ❌ COMENTA o ELIMINA el POST
-// router.post('/', autosController.registrarAuto);
+router.get("/", autosController.getAutos);
+router.post("/", autosController.createAuto);
 
 module.exports = router;

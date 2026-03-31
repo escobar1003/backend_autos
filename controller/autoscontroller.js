@@ -1,20 +1,19 @@
-const { Autos } = require('../models');
+const Auto = require("../models/auto");
 
-exports.autosDisponibles = async (req, res) => {
-    try {
-        const autos = await Autos.findAll({
-            where: { disponibilidad: 1 }
-        });
+exports.getAutos = async (req, res) => {
+  try {
+    const autos = await Auto.findAll();
+    res.json(autos);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-        res.json(autos);
-
-    } catch (error) {
-        console.log("🔥 ERROR REAL:", error); // IMPORTANTE
-
-        res.status(500).json({
-            mensaje: "error",
-            error: error.message,
-            detalle: error
-        });
-    }
+exports.createAuto = async (req, res) => {
+  try {
+    const auto = await Auto.create(req.body);
+    res.json(auto);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
